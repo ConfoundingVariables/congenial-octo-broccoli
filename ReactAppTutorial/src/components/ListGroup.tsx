@@ -1,8 +1,11 @@
+interface ListGroupProps {
+  items: string[];
+  heading: string;
+}
+
 import { useState } from "react";
 
-function ListGroup() {
-  let items = ["India", "UAE", "USA", "SG"];
-
+function ListGroup({ items, heading }: ListGroupProps) {
   const listNotEmpty = () => {
     return items.length === 0 ? <p>No Items Found!!</p> : null;
   };
@@ -29,7 +32,7 @@ function ListGroup() {
   return (
     // <> </> tells react to use Fragment for all the children
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {listNotEmpty()}
       {/* cooler way to do this is 
       {items.length === 0 && <p>No Items Found!!</p>} which is basically true && "output" */}
